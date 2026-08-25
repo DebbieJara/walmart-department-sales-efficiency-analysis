@@ -19,7 +19,7 @@ Two metrics told the real story:
 - **Participation %** showed which departments contributed most to total revenue, helping prioritize commercial strategy.
 - **Sales per m²** exposed which departments were truly efficient versus those that looked strong on paper but underperformed relative to their store footprint.
 
-Data quality checks confirmed 6,435 records without a matched department, 27 negative sales values, and no missing store size data — all handled before any analysis was run. Notably, department code 16, representing 5.27% of 2012 sales, has no matching entry in the department catalogue: a data governance gap flagged for the data team rather than silently excluded.
+Data quality checks confirmed 6,435 records without a matched department, 27 negative sales values, and no missing store size data. All checks were handled before any analysis was run. Notably, department code 16, representing 5.27% of 2012 sales, has no matching entry in the department catalogue: a data governance gap flagged for the data team rather than silently excluded.
 
 ## Dashboard
 
