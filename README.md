@@ -6,7 +6,7 @@
 
 ## Context
 
-This analysis was built to answer that question using Walmart's 2012 weekly sales data.
+This analysis evaluates 2012 department-level sales performance to identify each department's contribution to the business and its space efficiency, serving as a foundation for commercial decision-making.
 
 ## Process
 
@@ -14,12 +14,25 @@ Built a full analytical pipeline in Google Sheets, from raw data to executive da
 
 ## Key findings
 
-Two metrics told the real story:
+### Which department categories were most efficient at generating sales in 2012?
 
-- **Participation %** showed which departments contributed most to total revenue, helping prioritize commercial strategy.
-- **Sales per m²** exposed which departments were truly efficient versus those that looked strong on paper but underperformed relative to their store footprint.
+**KPI:** Sales per m²
 
-Data quality checks confirmed 6,435 records without a matched department, 27 negative sales values, and no missing store size data. All checks were handled before any analysis was run. Notably, department code 16, representing 5.27% of 2012 sales, has no matching entry in the department catalogue: a data governance gap flagged for the data team rather than silently excluded.
+**Context:** Department efficiency was analyzed using sales per square metre, to compare category performance independent of store size.
+
+**Insight:** Despensa y Básicos, Comida Fresca, and Artículos del Hogar y Papel show the highest sales per square metre, indicating more efficient use of available space compared to other categories.
+
+**Implication:** Prioritizing these categories in space allocation, or replicating their commercial practices, could increase total sales without expanding store footprint.
+
+### Which departments contributed most to the business, and which underperformed relative to their potential?
+
+**KPI:** Department participation (% of total sales)
+
+**Context:** Each department's share of total 2012 sales was evaluated to identify which categories carry the most weight in the business and which show a smaller contribution.
+
+**Insight:** Despensa y Básicos, Comida Fresca, and Artículos del Hogar y Papel concentrate the largest share of total sales, while Jardín y Vida al Aire Libre and Oficina, Escuela y Manualidades show reduced participation and relatively weaker performance. Additionally, department code 16 represents 5.27% of 2012 sales but appears as "No existe" in the report, since it has no matching name in the department catalogue (raw_departamento only contains codes 1 through 14).
+
+**Implication:** Departments with low contribution and low efficiency represent opportunities for improvement through adjustments in space, assortment, or commercial strategy, while high-contribution departments should be maintained as core pillars of the business. Additionally, the data team should update the master department catalogue to include code 16, to avoid leaving 5.27% of sales unclassified in executive reporting.
 
 ## Dashboard
 
@@ -50,12 +63,23 @@ Interactive dashboard filterable by department, showing sales per m², participa
 
 ### Data quality checks
 
-| Check | Formula | Result |
-|---|---|---|
-| Records without a matched department | `=CONTAR.SI(clean_ventas!I:I,"No existe")` | 6,435 |
-| Negative or null sales | `=COUNTIF(clean_ventas!D:D,"<0")` | 27 |
-| Store sizes with value 0 or blank | `=COUNTIF(raw_tiendas!C2:C46,0)+COUNTBLANK(raw_tiendas!C2:C46)` | 0 |
+| Check | How it was verified | Formula | Result |
+|---|---|---|---|
+| Records without a matched department | Filtered the Dept column for blank values | `=CONTAR.SI(clean_ventas!I:I,"No existe")` | 6,435 |
+| Negative or null sales | Searched for values < 0 using COUNTIF | `=COUNTIF(clean_ventas!D:D,"<0")` | 27 |
+| Store sizes with value 0 or blank | Checked for zero or blank values | `=COUNTIF(raw_tiendas!C2:C46,0)+COUNTBLANK(raw_tiendas!C2:C46)` | 0 |
 
 ## Tools
 
-Google Sheets · VLOOKUP · Pivot Tables · COUNTIF · Dashboard
+Google Sheets · VLOOKUP · Pivot Tables · COUNTIF · Dashboard Design · Data Quality Validation · Data Governance
+
+## Dataset
+
+This project lives entirely in Google Sheets. See the interactive file below.
+
+Full interactive file: [View on Google Sheets](https://docs.google.com/spreadsheets/d/1-QXNf5ENdyKSFaGZ_Qy1MbOCtjrnknMW/edit?usp=sharing&ouid=106602298566061042272&rtpof=true&sd=true)
+
+---
+
+By Deborah Jara | Business Intelligence · Data Analytics | Mexico
+[LinkedIn](https://www.linkedin.com/in/deborahjara) · [GitHub](https://github.com/DebbieJara)
