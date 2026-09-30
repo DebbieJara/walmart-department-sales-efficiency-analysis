@@ -30,7 +30,7 @@ Built a full analytical pipeline in Google Sheets, from raw data to executive da
 
 **Context:** Each department's share of total 2012 sales was evaluated to identify which categories carry the most weight in the business and which show a smaller contribution.
 
-**Insight:** Despensa y Básicos, Comida Fresca, and Artículos del Hogar y Papel concentrate the largest share of total sales, while Jardín y Vida al Aire Libre and Oficina, Escuela y Manualidades show reduced participation and relatively weaker performance. Additionally, department code 16 represents 5.27% of 2012 sales but appears as "No existe" in the report, since it has no matching name in the department catalogue (raw_departamento only contains codes 1 through 14).
+**Insight:** Despensa y Básicos, Comida Fresca, and Artículos del Hogar y Papel concentrate the largest share of total sales, while Jardín y Vida al Aire Libre and Oficina, Escuela y Manualidades show reduced participation and relatively weaker performance. Additionally, department code 16 represents 4.79% of 2012 sales but appears as "No existe" in the report, since it has no matching name in the department catalogue (raw_departamento only contains codes 1 through 14).
 
 **Implication:** Departments with low contribution and low efficiency represent opportunities for improvement through adjustments in space, assortment, or commercial strategy, while high-contribution departments should be maintained as core pillars of the business. Additionally, the data team should update the master department catalogue to include code 16, to avoid leaving 5.27% of sales unclassified in executive reporting.
 
